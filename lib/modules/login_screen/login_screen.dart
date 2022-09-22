@@ -4,6 +4,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
+import '../../layout/layout.dart';
 import '../../shared/components/components.dart';
 import 'cubit/login_cubit.dart';
 import 'cubit/login_state.dart';
@@ -75,7 +76,12 @@ class LoginScreen extends StatelessWidget{
                           builder: (context) =>
                               defaultButton(
                                 submitFunction: () {
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const HomeLayout()),
+                                        (Route<dynamic> route) => false,
 
+                                  );
                                 },
                                 text: 'Sign in',
                                 background: primarySwatch,

@@ -6,6 +6,8 @@ import 'package:intico_glob/modules/welcoming_screen/cubit/welcoming_cubit.dart'
 import 'package:intico_glob/modules/welcoming_screen/cubit/welcoming_state.dart';
 import 'package:intico_glob/shared/components/components.dart';
 
+import '../phone_Registeration_screen/registeration_layout.dart';
+
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
@@ -14,7 +16,12 @@ class WelcomeScreen extends StatelessWidget {
     return BlocProvider(
         create: (BuildContext context) => WelcomingCubit(),
         child: BlocConsumer<WelcomingCubit, WelcomingStates>(
-            listener: (context, state) {},
+            listener: (context, state) {
+
+
+
+
+            },
             builder: (context, state) {
               return Scaffold(
                 body: SingleChildScrollView(
@@ -30,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                           onTap: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => LoginScreen()),
+                              MaterialPageRoute(builder: (context) => RegisterLayout()),
                             );
                           },
                           child: Card(
@@ -50,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                           onTap: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => LoginScreen()),
+                              MaterialPageRoute(builder: (context) => RegisterLayout()),
                             );
                           },
                           child: Card(
@@ -69,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                           onTap: (){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => LoginScreen()),
+                              MaterialPageRoute(builder: (context) => RegisterLayout()),
                             );
                           },
                           child: Card(

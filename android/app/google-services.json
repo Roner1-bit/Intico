@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "818360871440",
+    "firebase_url": "https://intico-1d09d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "intico-1d09d",
+    "storage_bucket": "intico-1d09d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818360871440:android:2b17de2e06c10b75057895",
+        "android_client_info": {
+          "package_name": "com.example.intico_glob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818360871440-km9u1lecov9lov9khv0fen37f5hs29uk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWIIhy5wsnspFkCwn_f7s5l1a9l1DFCpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818360871440-km9u1lecov9lov9khv0fen37f5hs29uk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

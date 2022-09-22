@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_color_generator/material_color_generator.dart';
 
-
-
-
-const backgroundColor= Colors.white;
-MaterialColor primarySwatch= generateMaterialColor(color: Color(0xffB79EBB));
+const backgroundColor = Colors.white;
+MaterialColor primarySwatch = generateMaterialColor(color: Color(0xffB79EBB));
 const textColor = Colors.black;
 
 //Color primarySwatch = HexColor('#B79EBB');
@@ -30,7 +27,7 @@ Widget defaultButton({
         color: background,
       ),
       child: MaterialButton(
-        onPressed:(){
+        onPressed: () {
           submitFunction();
         },
         child: Text(
@@ -42,13 +39,11 @@ Widget defaultButton({
       ),
     );
 
-
 Widget defaultFormField({
   required TextEditingController controller,
   required TextInputType textType,
   Function? onSubmit,
   Function? onChange,
-  Function? onTap,
   bool isPassword = false,
   required Function validate,
   required String label,
@@ -59,63 +54,113 @@ Widget defaultFormField({
 }) =>
     TextFormField(
       controller: controller,
-
+      onSaved: (s) {},
       keyboardType: textType,
       obscureText: isPassword,
       enabled: isClickable,
-      onFieldSubmitted: (s){
-        onSubmit!(s);
-      },
-      onChanged: (s){
-        onChange!(s);
-      },
-      onTap:(){
-        onTap!();
-    },
-      validator:(s) {
+      validator: (s) {
         validate(s);
-        return null;
       },
-        decoration: InputDecoration(
+      decoration: InputDecoration(
         labelText: label,
-
         prefixIcon: Icon(
           prefix,
         ),
         suffixIcon: suffix != null
             ? IconButton(
-          onPressed:(){
-            suffixPressed!();
-          },
-            icon: Icon(
-            suffix,
-            ),
-
-        )
+                onPressed: () {
+                  suffixPressed!();
+                },
+                icon: Icon(
+                  suffix,
+                ),
+              )
             : null,
         border: const OutlineInputBorder(),
       ),
     );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Widget horizontalCardsCreator() {
+  return Row(
+    children: [
+      Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Visibility(
+          visible: true,
+          child: AnimatedContainer(
+            alignment: Alignment.center,
+            duration: const Duration(seconds: 1),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.network(
+                'https://www.thehrdirector.com/wp-content/uploads/2017/10/Office-Building-Modern.jpg',
+                height: 100,
+                width: 150,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+      ),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Container(
+                alignment: Alignment.topLeft,
+                child: const Text(
+                  'Company 1',
+                  style: TextStyle(
+                    color: textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Container(
+                alignment: Alignment.topLeft,
+                child: const Text(
+                  '',
+                  style: TextStyle(
+                    color: textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                  ),
+                )),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Container(
+                alignment: Alignment.topLeft,
+                child: const Text(
+                  '',
+                  style: TextStyle(
+                    color: textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                  ),
+                )),
+          ),
+        ],
+      ),
+      GestureDetector(
+        child: Expanded(
+          child: Container(
+              alignment: Alignment.centerRight,
+              child: const Icon(Icons.favorite)),
+        ),
+      )
+    ],
+  );
+}
 
 // Widget defaultFormField({
 //   required TextEditingController controller,

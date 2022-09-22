@@ -36,10 +36,13 @@ dependencies:
   flutter_easyloading: ^3.0.5
   material_color_generator: ^1.1.0
   flutter_native_splash: ^2.2.7
+  google_fonts: ^3.0.1
+  easy_container: ^1.0.4
+  intl_phone_field: ^3.1.0
   #firebae
-  firebase_core: ^1.20.0
-  firebase_auth: ^3.6.2
-  cloud_firestore: ^3.4.3
+  firebase_core: ^1.22.0
+  firebase_auth: ^3.8.0
+  cloud_firestore: ^3.4.7
 
 dev_dependencies:
   flutter_test:
@@ -99,3 +102,4 @@ flutter:
     - assets/images/google_icon.png
     - assets/images/phone.png
     - assets/images/facebook_logo_icon.png
+    - assets/images/chair.png

@@ -1,9 +1,8 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intico_glob/modules/Interiors_screen/Interiors_screen.dart';
+import 'package:intico_glob/shared/components/components.dart';
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
@@ -13,20 +12,26 @@ class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> screensTitle = [
-      "Click on food to add to food calculator",
-      "Food Calculator",
-      "Steps Calculator",
-      "Personal info",
+      "Home",
+      "Chats",
+      "Favorites",
+      "Profile",
     ];
-
     String screenTitle=screensTitle[0];
     return BlocProvider(
         create: (BuildContext context) => HomeCubit(),
         child: BlocConsumer<HomeCubit, HomeStates>(
             listener: (context, state) {
-              if(state is AppChangeBottomNavBarState){
+              if(state is HomeChangeBottomNavBarState){
                 screenTitle=screensTitle[state.index];
               }
+              if(state is HomeInteriorState){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const InteriorScreen()),
+                );
+              }
+
 
             },
             builder: (context, state) {
@@ -49,8 +54,7 @@ class HomeLayout extends StatelessWidget {
                   actions: [
                     // Navigate to the Search Screen
                     IconButton(
-                        onPressed: () => Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) => const SearchScreen())),
+                        onPressed: () {},
                         icon: const Icon(Icons.search))
                   ],
                 ),
@@ -58,8 +62,8 @@ class HomeLayout extends StatelessWidget {
                 body: mainCubit.screens[mainCubit.currentScreenIndex],
                 bottomNavigationBar: BottomNavigationBar(
                   elevation: 0,
-                  backgroundColor: Colors.deepOrange,
-                  selectedItemColor: Colors.red,
+                  backgroundColor: Colors.white,
+                  selectedItemColor: primarySwatch,
                   unselectedItemColor: Colors.grey,
                   currentIndex: mainCubit.currentScreenIndex,
                   onTap: (index){
@@ -68,29 +72,29 @@ class HomeLayout extends StatelessWidget {
                   items: const [
                     BottomNavigationBarItem(
                       icon: Icon(
-                        Icons.fastfood,
+                        Icons.home,
                       ),
                       label: 'Home',
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(
-                        Icons.calculate_outlined,
+                        Icons.chat_outlined,
                       ),
-                      label: 'Food Calculator',
+                      label: 'Chats',
                     ),
 
                     BottomNavigationBarItem(
                       icon: Icon(
-                        Icons.do_not_step,
+                        Icons.favorite,
                       ),
-                      label: 'Steps Calculator',
+                      label: 'Favorites',
                     ),
 
                     BottomNavigationBarItem(
                       icon: Icon(
                         Icons.account_box,
                       ),
-                      label: 'Personal Info',
+                      label: 'Profile',
                     ),
 
                   ],
